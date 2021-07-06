@@ -27,7 +27,7 @@ class faceRecognitionAttendanceSystem:
         self.face_encodings = []
         self.face_names = []   
         
-        return self.homeInterface()
+        return
         
     def homeInterface(self):
 
