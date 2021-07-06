@@ -4,3 +4,6 @@ dependencies:
      - dlib
      - numpy
      - face_recognition
+     - pip:
+       - streamlit-webcam-example
+       - streamlit
