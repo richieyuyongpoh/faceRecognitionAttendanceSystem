@@ -1,0 +1,6 @@
+channels:
+     - conda-forge
+dependencies:
+     - dlib
+     - numpy
+     - face_recognition
