@@ -33,7 +33,7 @@ class faceRecognitionAttendanceSystem:
 
 #         self.registrationStatus = 0
 
-        st.title("Welcome to RICHIEYYPTUTORIAPAGE Face Recognition Attendance System")
+        st.title("Welcome to RICHIEYYPTUTORIALPAGE Face Recognition Attendance System")
         st.write("Note: This is a prototype demo. No files will be stored into the cloud.")
         st.write("Should you feel uncomfortable, please use any cartoon face.")
         st.write("")
