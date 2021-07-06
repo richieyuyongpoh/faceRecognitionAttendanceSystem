@@ -66,9 +66,9 @@ class faceRecognitionAttendanceSystem:
             
             col1, col2 = st.beta_columns([.5,1])
             with col1:
-            yes = st.button("YES")
+                yes = st.button("YES")
             with col2:
-            no = st.button("NO")
+                no = st.button("NO")
             
             if yes:
                 return self.initRegistrationModule()
