@@ -2,5 +2,5 @@ channels:
      - conda-forge
 dependencies:
      - dlib
-     - numpy
+     - streamlit-webcam-example
      - face_recognition
