@@ -31,7 +31,7 @@ class faceRecognitionAttendanceSystem:
         
     def homeInterface(self):
 
-        self.registrationStatus = 0
+#         self.registrationStatus = 0
 
         st.title("Welcome to RICHIEYYPTUTORIAPAGE Face Recognition Attendance System")
         st.write("Note: This is a prototype demo. No files will be stored into the cloud.")
