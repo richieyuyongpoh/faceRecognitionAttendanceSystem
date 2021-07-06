@@ -6,7 +6,7 @@ from datetime import datetime
 
 system = faceRecognitionAttendanceSystem()
 
-# system.homeInterface()
+system.homeInterface()
 
 with st.sidebar.beta_expander("Section A: Registration"):
     st.sidebar.header("Registration")
