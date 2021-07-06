@@ -14,7 +14,7 @@ with st.beta_expander("Section A: Registration"):
     st.write("Take note that this prototype demo does not store any info permanently into the server.")
     st.write("Should you feel uncomfortable, please use any cartoon face.")
     
-    register = st.sidebar.button("Register")
+    register = st.button("Register")
     
     if register:
         system.initRegistrationModule()
