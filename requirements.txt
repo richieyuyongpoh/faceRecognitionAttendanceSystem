@@ -1,3 +1,2 @@
 streamlit-webcam-example
 streamlit==0.73
-datetime
