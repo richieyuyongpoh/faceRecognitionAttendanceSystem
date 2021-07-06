@@ -231,5 +231,5 @@ class faceRecognitionAttendanceSystem:
             self.registrationStatus = 1
         
         
-            return self.homeInterface()
+            return 
     
