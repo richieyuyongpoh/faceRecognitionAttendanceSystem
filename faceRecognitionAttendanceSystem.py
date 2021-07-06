@@ -23,11 +23,17 @@ with st.sidebar.beta_expander("Section A: Registration"):
 with st.sidebar.beta_expander("Section B: Check in"):
     st.sidebar.header("Check in your attendance")
 
-    system.initCheckInModule()
+    checkin = st.sidebar.button("Check In")
+    
+    if checkin:
+        system.initCheckInModule()
     
     
 with st.sidebar.beta_expander("Section C: Summary"):
     st.sidebar.header("Check your attendance records")
-
-    system.initSummaryModule()        
+    
+    summary = st.sidebar.button("Attendance Record")
+    
+    if summary:
+        system.initSummaryModule()        
         
