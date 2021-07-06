@@ -3,5 +3,4 @@ channels:
 dependencies:
      - dlib
      - numpy
-     - streamlit-webcam-example
      - face_recognition
