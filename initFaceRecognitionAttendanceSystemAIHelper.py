@@ -1,8 +1,10 @@
-
+import streamlit as st
+from webcam import webcam
+from datetime import datetime
+    
+    
 class faceRecognitionAttendanceSystem:
-    import streamlit as st
-    from webcam import webcam
-    from datetime import datetime
+
     
     def __init__(self):
         self.known_face_encodings = []
