@@ -1,4 +1,4 @@
-import streamlit as st
+import streamlit as st 
 from initFaceRecognitionAttendanceSystemAIHelper import faceRecognitionAttendanceSystem
 from webcam import webcam
 from datetime import datetime
