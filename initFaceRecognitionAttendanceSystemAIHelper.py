@@ -120,9 +120,9 @@ class faceRecognitionAttendanceSystem:
             
             col1, col2 = st.beta_columns([.5,1])
             with col1:
-            yes = st.button("YES")
+                yes = st.button("YES")
             with col2:
-            no = st.button("NO")
+                no = st.button("NO")
             
             if yes:
                 return self.initRegistrationModule()
@@ -163,7 +163,7 @@ class faceRecognitionAttendanceSystem:
             
                 for (name,pwd) in self.registerUserInfo:
             
-                    if user_name == name and password = pwd:
+                    if user_name == name and password == pwd:
                         st.write(self.registerUserInfo)
                     
                 st.write("Wrong User Name or Password.")
