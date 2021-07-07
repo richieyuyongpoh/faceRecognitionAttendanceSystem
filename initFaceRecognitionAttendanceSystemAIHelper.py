@@ -15,7 +15,7 @@ class faceRecognitionAttendanceSystem:
         self.attendanceRecord = []
         self.face_encodings = []
         self.face_names = []
-        
+        self.user_choice = 0
         
     def clearMemory(self):
         self.known_face_encodings = []
@@ -26,6 +26,7 @@ class faceRecognitionAttendanceSystem:
         self.attendanceRecord = []
         self.face_encodings = []
         self.face_names = []   
+        self.user_choice = 0
         
         return
         
@@ -73,10 +74,13 @@ class faceRecognitionAttendanceSystem:
                 no = st.button("NO")
             
             if yes:
-                return self.initRegistrationModule()
+                self.user_choice = 1
+                return
             
             if no:
-                return self.homeInterface()
+                self.user_choice = 0
+                
+                return
         
         else:
             
@@ -109,8 +113,9 @@ class faceRecognitionAttendanceSystem:
                 st.write("You have checked in on : {}".format( ct))
                 self.attendanceRecord.append = [(name,ct)]
             
-            
-                return selfhomeInterface()
+                self.user_choice = 0
+                
+                return 
 
     def initSummaryModule(self):
         
@@ -127,10 +132,13 @@ class faceRecognitionAttendanceSystem:
                 no = st.button("NO")
             
             if yes:
-                return self.initRegistrationModule()
+                self.user_choice = 1
+                return 
             
             if no:
-                return self.homeInterface()
+                
+                self.user_choice = 0
+                return 
         
         else:  
             
@@ -229,7 +237,7 @@ class faceRecognitionAttendanceSystem:
             st.write("Returning back to home page...")
             
             self.registrationStatus = 1
-        
+            self.user_choice = 0
         
             return 
     
