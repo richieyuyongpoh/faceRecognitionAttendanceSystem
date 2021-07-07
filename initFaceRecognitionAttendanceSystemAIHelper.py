@@ -33,7 +33,7 @@ class faceRecognitionAttendanceSystem:
     def homeInterface(self):
 
 #         self.registrationStatus = 0
-
+        self.user_choice = []
         st.title("Welcome to RICHIEYYPTUTORIALPAGE Face Recognition Attendance System")
         st.write("Note: This is a prototype demo. No files will be stored into the cloud.")
         st.write("Should you feel uncomfortable, please use any cartoon face.")
@@ -56,9 +56,10 @@ class faceRecognitionAttendanceSystem:
         clear = st.button("CLEAR")
         
         if clear:
+            st.write("Memory has been cleared")
+            self.clearMemory()
             
-            
-            return self.clearMemory()
+            return 
         
     def initCheckInModule(self):
         
