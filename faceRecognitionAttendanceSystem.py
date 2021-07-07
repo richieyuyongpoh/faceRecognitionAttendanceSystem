@@ -16,17 +16,18 @@ with st.beta_expander("Section A: Registration"):
     
     register = st.button("Register")
     
-    if register:
-        system.initRegistrationModule()
+if register:
+    system.initRegistrationModule()
 
         
-with st.beta_expander("Section B: Check in"):
-    st.header("Check in your attendance")
+with st.sidebar.beta_expander("Section B: Check in"):
+    st.sidebar.header("Check in your attendance")
 
-    checkin = st.button("Check In")
+    checkin = st.sidebar.button("Check In")
     
-    if checkin:
-        system.initCheckInModule()
+if checkin:
+       
+    system.initCheckInModule()
     
     
 with st.beta_expander("Section C: Summary"):
@@ -34,6 +35,6 @@ with st.beta_expander("Section C: Summary"):
     
     summary = st.button("Attendance Record")
     
-    if summary:
-        system.initSummaryModule()        
+if summary:
+    system.initSummaryModule()        
         
