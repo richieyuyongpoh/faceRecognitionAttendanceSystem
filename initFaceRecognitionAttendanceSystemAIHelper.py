@@ -2,7 +2,7 @@ import streamlit as st
 from webcam import webcam
 from datetime import datetime
 import face_recognition
-    
+from tempfile import NamedTemporaryFile    
     
 class faceRecognitionAttendanceSystem:
 
@@ -79,10 +79,10 @@ class faceRecognitionAttendanceSystem:
         else:
             
             st.write("Stand in front of the camera and register your information.")
-            captured_image = webcam()
+            temp_file.write(webcam()) 
         
-            face_locations = face_recognition.face_locations(captured_image)
-            face_encodings = face_recognition.face_encodings(captured_image, face_locations)
+            face_locations = face_recognition.face_locations(temp_file.name)
+            face_encodings = face_recognition.face_encodings(temp_file.name, face_locations)
             face_names = []
             for face_encoding in face_encodings:
          
