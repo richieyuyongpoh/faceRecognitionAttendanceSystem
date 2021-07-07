@@ -26,7 +26,7 @@ class faceRecognitionAttendanceSystem:
         self.attendanceRecord = []
         self.face_encodings = []
         self.face_names = []   
-        self.user_choice = 0
+        
         
         return
         
