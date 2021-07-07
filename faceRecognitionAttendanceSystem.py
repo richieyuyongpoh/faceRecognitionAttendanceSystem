@@ -6,15 +6,15 @@ from datetime import datetime
 
 system = faceRecognitionAttendanceSystem()
 
-system.homeInterface()
+# system.homeInterface()
 
 
-system.user_choice = st.sidebar.selectbox(
+user_choice = st.sidebar.selectbox(
     'Select an Option',
     ('Home','Register', 'Check in', 'View attendance Record'))
 
-
-if system.user_choice== 'Register':
+# system = faceRecognitionAttendanceSystem()
+if user_choice== 'Register':
     
     st.sidebar.header("Registration")
     st.sidebar.write("Register a new staff info")
@@ -23,16 +23,16 @@ if system.user_choice== 'Register':
 
     system.initRegistrationModule()
 
-elif system.user_choice== 'Check in':        
+elif user_choice== 'Check in':        
 
 
     system.initCheckInModule()
     
     
-elif system.user_choice== 'View attendance Record':  
+elif user_choice== 'View attendance Record':  
     
     system.initSummaryModule()        
 
 else:
-    pass
+    system.homeInterface()
         
