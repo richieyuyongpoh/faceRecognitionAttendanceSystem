@@ -15,14 +15,14 @@ class faceRecognitionAttendanceSystem:
         self.attendanceRecord = []
         self.face_encodings = []
         self.face_names = []
-        self.user_choice = []
+   
         
     def clearMemory(self):
         self.known_face_encodings = []
         self.known_face_names = []
         self.registerUserInfo = []
         self.registrationStatus = 0
-#         self.user_choice = []
+
 
         self.attendanceRecord = []
         self.face_encodings = []
@@ -69,23 +69,11 @@ class faceRecognitionAttendanceSystem:
         
         if self.registrationStatus ==0:
             st.write("<font color='red'>No registration is found</font>", unsafe_allow_html=True)
-            st.write("Do you want to go to <Section A: Registration Menu>?")
+            st.write("Please register first.")
             st.write("")
-            
-            col1, col2 = st.beta_columns([.5,1])
-            with col1:
-                yes = st.button("YES")
-            with col2:
-                no = st.button("NO")
-            
-            if yes:
-                self.user_choice = 'Register'
-                return
-            
-            if no:
-                self.user_choice = []
-                
-                return
+           
+               
+            return
         
         else:
             
@@ -118,7 +106,7 @@ class faceRecognitionAttendanceSystem:
                 st.write("You have checked in on : {}".format( ct))
                 self.attendanceRecord.append = [(name,ct)]
             
-                self.user_choice = []
+ 
                 
                 return 
 
@@ -127,23 +115,9 @@ class faceRecognitionAttendanceSystem:
         
         if self.registrationStatus ==0:
             st.write("<font color='red'>No registration is found</font>", unsafe_allow_html=True)
-            st.write("Do you want to go to <Section A: Registration Menu>?")
-            st.write("")
-            
-            col1, col2 = st.beta_columns([.5,1])
-            with col1:
-                yes = st.button("YES")
-            with col2:
-                no = st.button("NO")
-            
-            if yes:
-                self.user_choice = 'Register'
-                return 
-            
-            if no:
-                
-                self.user_choice = []
-                return 
+            st.write("Please register first.")
+
+            return 
         
         else:  
             
@@ -249,7 +223,7 @@ class faceRecognitionAttendanceSystem:
             st.write("Returning back to home page...")
             
             self.registrationStatus = 1
-            self.user_choice = []
+        
         
             return 
     
