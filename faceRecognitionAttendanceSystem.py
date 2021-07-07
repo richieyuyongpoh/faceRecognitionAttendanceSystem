@@ -9,10 +9,10 @@ system = faceRecognitionAttendanceSystem()
 system.homeInterface()
 
 with st.sidebar.beta_expander("Section A: Registration"):
-    st.sidebar.header("Registration")
-    st.sidebar.write("Register a new staff info")
-    st.sidebar.write("Take note that this prototype demo does not store any info permanently into the server.")
-    st.sidebar.write("Should you feel uncomfortable, please use any cartoon face.")
+    st.header("Registration")
+    st.write("Register a new staff info")
+    st.write("Take note that this prototype demo does not store any info permanently into the server.")
+    st.write("Should you feel uncomfortable, please use any cartoon face.")
     
     register = st.sidebar.button("Register")
     
