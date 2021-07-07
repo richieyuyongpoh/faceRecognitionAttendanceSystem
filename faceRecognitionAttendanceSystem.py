@@ -1,6 +1,6 @@
 import streamlit as st 
 from initFaceRecognitionAttendanceSystemAIHelper import faceRecognitionAttendanceSystem
-#from webcam import webcam
+from webcam import webcam
 import face_recognition
 from datetime import datetime
 
