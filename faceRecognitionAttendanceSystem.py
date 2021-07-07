@@ -54,6 +54,8 @@ elif system.user_choice ==2:
 elif system.user_choice ==3:
     system.initSummaryModule()   
     
-else:
+elif system.user_choice ==0:
     system.homeInterface()
+else:
+    pass
         
