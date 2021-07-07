@@ -4,6 +4,7 @@ dependencies:
      - dlib
      - numpy
      - libgcc
+     - libstdc++6
      - libstdcxx-ng
      - face_recognition
      - pip
