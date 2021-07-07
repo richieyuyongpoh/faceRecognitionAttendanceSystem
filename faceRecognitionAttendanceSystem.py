@@ -8,54 +8,31 @@ system = faceRecognitionAttendanceSystem()
 
 system.homeInterface()
 
-with st.sidebar.beta_expander("Section A: Registration"):
-    st.header("Registration")
-    st.write("Register a new staff info")
-    st.write("Take note that this prototype demo does not store any info permanently into the server.")
-    st.write("Should you feel uncomfortable, please use any cartoon face.")
-    
-    register = st.button("Register")
-    
-if register:
-    
-    system.user_choice = 1
-#     system.initRegistrationModule()
 
-        
-with st.sidebar.beta_expander("Section B: Check in"):
-    st.header("Check in your attendance")
-
-    checkin = st.button("Check In")
-    
-if checkin:
-       
-    system.user_choice = 2   
-#     system.initCheckInModule()
-    
-    
-with st.sidebar.beta_expander("Section C: Summary"):
-    st.header("Check your attendance records")
-    
-    summary = st.button("Attendance Record")
-    
-if summary:
-    
-    system.user_choice = 3
-#     system.initSummaryModule()        
+system.user_choice = st.sidebar.selectbox(
+    'Select an Option',
+    ('Home','Register', 'Check in', 'View attendance Record'))
 
 
+if system.user_choice== 'Register':
+    
+    st.sidebar.header("Registration")
+    st.sidebar.write("Register a new staff info")
+    st.sidebar.write("Take note that this prototype demo does not store any info permanently into the server.")
+    st.sidebar.write("Should you feel uncomfortable, please use any cartoon face.")
 
-if system.user_choice ==1:
     system.initRegistrationModule()
-    
-elif system.user_choice ==2:
+
+elif system.user_choice== 'Check in':        
+
+
     system.initCheckInModule()
     
-elif system.user_choice ==3:
-    system.initSummaryModule()   
     
-elif system.user_choice ==0:
-    system.homeInterface()
+elif system.user_choice== 'View attendance Record':  
+    
+    system.initSummaryModule()        
+
 else:
-    pass
+    system.homeInterface()
         
