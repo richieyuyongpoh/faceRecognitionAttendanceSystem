@@ -171,8 +171,8 @@ class faceRecognitionAttendanceSystem:
         st.write("")
 
         st.write("Stand in front of the camera and register your information.")
-        captured_image = webcam()
         
+        temp_file.write(webcam()) 
         self.registrationStatus = 0
         st.write("")
         st.write("Please register your name and password")
@@ -211,7 +211,7 @@ class faceRecognitionAttendanceSystem:
                 
         else:
             
-            new_image = face_recognition.load_image_file(captured_image)
+            new_image = face_recognition.load_image_file(temp_file)
             new_face_encoding = face_recognition.face_encodings(new_image)[0]
                     
             self.known_face_encodings.append(new_face_encoding) 
