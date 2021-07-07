@@ -170,9 +170,16 @@ class faceRecognitionAttendanceSystem:
         st.write("")
         st.write("")
 
-        st.write("Stand in front of the camera and register your information.")
-        temp_file = NamedTemporaryFile(delete=False)
-        temp_file.write(webcam()) 
+        st.write("Stand in front of the camera and press the capture button")
+        
+        captured_image = webcam()
+        if captured_image is None:
+            st.write("Waiting for capture...")
+        else:
+            st.write("The following image has been captured. ")
+            st.image(captured_image)
+            
+            
         self.registrationStatus = 0
         st.write("")
         st.write("Please register your name and password")
@@ -211,7 +218,7 @@ class faceRecognitionAttendanceSystem:
                 
         else:
             
-            new_image = face_recognition.load_image_file(temp_file)
+            new_image = face_recognition.load_image_file(captured_image)
             new_face_encoding = face_recognition.face_encodings(new_image)[0]
                     
             self.known_face_encodings.append(new_face_encoding) 
