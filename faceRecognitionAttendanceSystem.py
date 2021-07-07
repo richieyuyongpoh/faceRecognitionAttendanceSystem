@@ -17,7 +17,9 @@ with st.sidebar.beta_expander("Section A: Registration"):
     register = st.button("Register")
     
 if register:
-    system.initRegistrationModule()
+    
+    system.user_choice = 1
+#     system.initRegistrationModule()
 
         
 with st.sidebar.beta_expander("Section B: Check in"):
@@ -27,7 +29,8 @@ with st.sidebar.beta_expander("Section B: Check in"):
     
 if checkin:
        
-    system.initCheckInModule()
+    system.user_choice = 2   
+#     system.initCheckInModule()
     
     
 with st.sidebar.beta_expander("Section C: Summary"):
@@ -36,5 +39,21 @@ with st.sidebar.beta_expander("Section C: Summary"):
     summary = st.button("Attendance Record")
     
 if summary:
-    system.initSummaryModule()        
+    
+    system.user_choice = 3
+#     system.initSummaryModule()        
+
+
+
+if system.user_choice ==1:
+    system.initRegistrationModule()
+    
+elif system.user_choice ==2:
+    system.initCheckInModule()
+    
+elif system.user_choice ==3:
+    system.initSummaryModule()   
+    
+else:
+    system.homeInterface()
         
