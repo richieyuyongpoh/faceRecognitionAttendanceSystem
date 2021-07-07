@@ -16,11 +16,6 @@ user_choice = st.sidebar.selectbox(
 # system = faceRecognitionAttendanceSystem()
 if user_choice== 'Register':
     
-    st.sidebar.header("Registration")
-    st.sidebar.write("Register a new staff info")
-    st.sidebar.write("Take note that this prototype demo does not store any info permanently into the server.")
-    st.sidebar.write("Should you feel uncomfortable, please use any cartoon face.")
-
     system.initRegistrationModule()
 
 elif user_choice== 'Check in':        
