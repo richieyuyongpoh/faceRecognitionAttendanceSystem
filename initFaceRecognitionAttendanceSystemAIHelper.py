@@ -56,7 +56,9 @@ class faceRecognitionAttendanceSystem:
         clear = st.button("CLEAR")
         
         if clear:
-            st.write("Memory has been cleared")
+            
+            st.write("<font color='Aquamarine'>Memory has been cleared</font>", unsafe_allow_html=True)
+            
             self.clearMemory()
             
             return 
