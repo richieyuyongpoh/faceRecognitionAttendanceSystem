@@ -67,7 +67,7 @@ class faceRecognitionAttendanceSystem:
         return
         
     def initCheckInModule(self):
-        
+        temp_file = NamedTemporaryFile(delete=False)
         if self.registrationStatus ==0:
             st.write("<font color='red'>No registration is found</font>", unsafe_allow_html=True)
             st.write("Please register first.")
@@ -171,7 +171,7 @@ class faceRecognitionAttendanceSystem:
         st.write("")
 
         st.write("Stand in front of the camera and register your information.")
-        
+        temp_file = NamedTemporaryFile(delete=False)
         temp_file.write(webcam()) 
         self.registrationStatus = 0
         st.write("")
