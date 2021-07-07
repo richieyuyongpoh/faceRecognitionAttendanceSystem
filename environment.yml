@@ -3,7 +3,7 @@ channels:
 dependencies:
      - dlib
      - numpy
-     - libgcc=5.2.0
+     - libgcc
      - libstdcxx-ng
      - face_recognition
      - pip
