@@ -35,14 +35,14 @@ class faceRecognitionAttendanceSystem:
 #         self.registrationStatus = 0
         self.user_choice = []
         st.title("Welcome to RICHIEYYPTUTORIALPAGE Face Recognition Attendance System")
-        st.write("Note: This is a prototype demo. No files will be stored into the cloud.")
-        st.write("Should you feel uncomfortable, please use any cartoon face.")
-        st.write("")
-        st.write("")
-        st.write("")
-        st.write("To Rregister a new user, please go to <Section A: Registration> on the left pane.")
-        st.write("To check in, please go to <Section B: Check in> on the left pane.")
-        st.write("To check the attendance record, please go to <Section C: Summary> on the left pane.")
+#         st.write("Note: This is a prototype demo. No files will be stored into the cloud.")
+#         st.write("Should you feel uncomfortable, please use any cartoon face.")
+#         st.write("")
+#         st.write("")
+#         st.write("")
+#         st.write("To Rregister a new user, please go to <Section A: Registration> on the left pane.")
+#         st.write("To check in, please go to <Section B: Check in> on the left pane.")
+#         st.write("To check the attendance record, please go to <Section C: Summary> on the left pane.")
         
         st.write ("For more info, please contact:")
         st.write("<a href='https://www.linkedin.com/in/yong-poh-yu/'>Dr. Yong Poh Yu </a>", unsafe_allow_html=True)
