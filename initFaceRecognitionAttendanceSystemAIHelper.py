@@ -15,13 +15,14 @@ class faceRecognitionAttendanceSystem:
         self.attendanceRecord = []
         self.face_encodings = []
         self.face_names = []
-        self.user_choice = 0
+        self.user_choice = []
         
     def clearMemory(self):
         self.known_face_encodings = []
         self.known_face_names = []
         self.registerUserInfo = []
         self.registrationStatus = 0
+#         self.user_choice = []
 
         self.attendanceRecord = []
         self.face_encodings = []
@@ -33,7 +34,7 @@ class faceRecognitionAttendanceSystem:
     def homeInterface(self):
 
 #         self.registrationStatus = 0
-        self.user_choice = []
+#         self.user_choice = []
         st.title("Welcome to RICHIEYYPTUTORIALPAGE Face Recognition Attendance System")
 #         st.write("Note: This is a prototype demo. No files will be stored into the cloud.")
 #         st.write("Should you feel uncomfortable, please use any cartoon face.")
@@ -77,11 +78,11 @@ class faceRecognitionAttendanceSystem:
                 no = st.button("NO")
             
             if yes:
-                self.user_choice = 1
+                self.user_choice = 'Register'
                 return
             
             if no:
-                self.user_choice = 0
+                self.user_choice = []
                 
                 return
         
@@ -116,7 +117,7 @@ class faceRecognitionAttendanceSystem:
                 st.write("You have checked in on : {}".format( ct))
                 self.attendanceRecord.append = [(name,ct)]
             
-                self.user_choice = 0
+                self.user_choice = []
                 
                 return 
 
@@ -135,12 +136,12 @@ class faceRecognitionAttendanceSystem:
                 no = st.button("NO")
             
             if yes:
-                self.user_choice = 1
+                self.user_choice = 'Register'
                 return 
             
             if no:
                 
-                self.user_choice = 0
+                self.user_choice = []
                 return 
         
         else:  
@@ -185,7 +186,14 @@ class faceRecognitionAttendanceSystem:
             
         
     def initRegistrationModule(self):
-    
+        
+        st.header("Registration")
+        st.write("Register a new staff info")
+        st.write("Take note that this prototype demo does not store any info permanently into the server.")
+        st.write("Should you feel uncomfortable, please use any cartoon face.")
+        st.write("")
+        st.write("")
+
         st.write("Stand in front of the camera and register your information.")
         captured_image = webcam()
         
@@ -240,7 +248,7 @@ class faceRecognitionAttendanceSystem:
             st.write("Returning back to home page...")
             
             self.registrationStatus = 1
-            self.user_choice = 0
+            self.user_choice = []
         
             return 
     
