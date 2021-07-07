@@ -1,7 +1,6 @@
 channels:
      - conda-forge
 dependencies:
-     - dlib
      - numpy
      - libgcc
      - libstdcxx-ng
@@ -10,4 +9,5 @@ dependencies:
      - pip:
        - streamlit-webcam-example
        - streamlit
+       - dlib
        - cmake
