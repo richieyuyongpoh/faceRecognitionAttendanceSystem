@@ -2,14 +2,15 @@ channels:
      - conda-forge
 dependencies:
      - numpy
-    # - libgcc
+  #   - libgcc
    #  - libstdcxx-ng
 #      - face_recognition
      - dlib
      - pip
      - pip:
-          - streamlit-webcam-example
-          - face_recognition
+        - streamlit-webcam-example
+        - face_recognition
+        - cmake
       # - streamlit
       # - dlib
       # - cmake
