@@ -9,7 +9,7 @@ dependencies:
      - pip
      - pip:
           - streamlit-webcam-example
-          - face-recpognition
+          - face_recognition
       # - streamlit
       # - dlib
       # - cmake
