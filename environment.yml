@@ -7,3 +7,4 @@ dependencies:
      - pip:
        - streamlit-webcam-example
        - streamlit
+       - cmake
