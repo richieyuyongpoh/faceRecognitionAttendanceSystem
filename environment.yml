@@ -7,9 +7,9 @@ dependencies:
      - face_recognition
      - dlib
      - streamlit-webcam-example
-    # - pip
-    # - pip:
-      # - streamlit-webcam-example
+     - pip
+     - pip:
+       - streamlit-webcam-example
       # - streamlit
       # - dlib
       # - cmake
