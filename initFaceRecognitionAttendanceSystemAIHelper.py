@@ -210,8 +210,6 @@ class faceRecognitionAttendanceSystem:
                 
         else:
             
-            
-            
             new_image = face_recognition.load_image_file(captured_image)
             new_face_encoding = face_recognition.face_encodings(new_image)[0]
                     
@@ -220,7 +218,7 @@ class faceRecognitionAttendanceSystem:
             self.registerUserInfo.append(user_name,password1)
             
             st.write("You have register successfully.")
-            st.write("Returning back to home page...")
+      
             
             self.registrationStatus = 1
         
