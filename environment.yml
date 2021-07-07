@@ -6,7 +6,6 @@ dependencies:
    #  - libstdcxx-ng
      - face_recognition
      - dlib
-     - streamlit-webcam-example
      - pip
      - pip:
        - streamlit-webcam-example
