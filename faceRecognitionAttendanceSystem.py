@@ -34,5 +34,5 @@ elif system.user_choice== 'View attendance Record':
     system.initSummaryModule()        
 
 else:
-    system.homeInterface()
+    pass
         
