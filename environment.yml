@@ -4,11 +4,12 @@ dependencies:
      - numpy
     # - libgcc
    #  - libstdcxx-ng
-     - face_recognition
+#      - face_recognition
      - dlib
-    # - pip
-    # - pip:
-     #  - streamlit-webcam-example
+    - pip
+    - pip:
+      - streamlit-webcam-example
+      - face-recpognition
       # - streamlit
       # - dlib
       # - cmake
