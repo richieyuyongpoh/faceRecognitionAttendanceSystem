@@ -63,6 +63,7 @@ class faceRecognitionAttendanceSystem:
             self.clearMemory()
             
             return 
+        return
         
     def initCheckInModule(self):
         
