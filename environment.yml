@@ -2,7 +2,6 @@ channels:
      - conda-forge
 dependencies:
      - dlib=19.18.0
-     - pip
      - pip:
        - streamlit-webcam-example==0.1.0
        - streamlit==0.84.0
