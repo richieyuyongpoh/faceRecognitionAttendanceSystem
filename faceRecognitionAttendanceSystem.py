@@ -240,7 +240,7 @@ def initRegistrationModule():
                if password2!=password1:
                     st.write("<font color='red'>Please make sure that the passwords are same.</font>", unsafe_allow_html=True)
                 
-                else:
+               else:
             
                     known_face_encodings.append(new_face_encoding) 
                     known_face_names.append(user_name)
@@ -599,28 +599,28 @@ else:
 
 
 
-system = faceRecognitionAttendanceSystem()
-
-
-user_choice = st.sidebar.selectbox(
-    'Select an Option',
-    ('Home','Register', 'Check in', 'View attendance Record'))
-
 # system = faceRecognitionAttendanceSystem()
-if user_choice== 'Register':
-    
-    system.initRegistrationModule()
-
-elif user_choice== 'Check in':        
 
 
-    system.initCheckInModule()
-    
-    
-elif user_choice== 'View attendance Record':  
-    
-    system.initSummaryModule()        
+# user_choice = st.sidebar.selectbox(
+#     'Select an Option',
+#     ('Home','Register', 'Check in', 'View attendance Record'))
 
-else:
-    system.homeInterface()
+# # system = faceRecognitionAttendanceSystem()
+# if user_choice== 'Register':
+    
+#     system.initRegistrationModule()
+
+# elif user_choice== 'Check in':        
+
+
+#     system.initCheckInModule()
+    
+    
+# elif user_choice== 'View attendance Record':  
+    
+#     system.initSummaryModule()        
+
+# else:
+#     system.homeInterface()
         
