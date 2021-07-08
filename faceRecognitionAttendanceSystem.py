@@ -105,7 +105,7 @@ def initCheckInModule():
             
   
                 
-         if confirmEnter:
+        if confirmEnter:
  
             
             for (name,pwd) in registerUserInfo:
