@@ -198,7 +198,8 @@ class faceRecognitionAttendanceSystem:
         
         webrtc_ctx = webrtc_streamer(
             key="loopback",
-            mode=WebRtcMode.SENDONLY,
+#             mode=WebRtcMode.SENDONLY,
+            mode=WebRtcMode.RECVONLY,
             client_settings=WEBRTC_CLIENT_SETTINGS,
             )
 
