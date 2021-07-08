@@ -1,5 +1,5 @@
 import streamlit as st 
-from initFaceRecognitionAttendanceSystemAIHelper import faceRecognitionAttendanceSystem
+from initFaceRecognitionAttendanceSystemAIHelper import faceRecognitionAttendanceSystem , VideoTransformer
 from webcam import webcam
 import face_recognition
 from datetime import datetime
