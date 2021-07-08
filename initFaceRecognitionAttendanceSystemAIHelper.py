@@ -12,6 +12,10 @@ from streamlit_webrtc import (
 
 class faceRecognitionAttendanceSystem:
 
+    WEBRTC_CLIENT_SETTINGS = ClientSettings(
+    rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
+    media_stream_constraints={"video": True, "audio": False},
+)
     
     def __init__(self):
         self.known_face_encodings = []
