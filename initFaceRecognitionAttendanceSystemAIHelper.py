@@ -181,8 +181,8 @@ class faceRecognitionAttendanceSystem:
 #             st.write("The following image has been captured. ")
 #             st.image(captured_image)
             
-        ctx = webrtc_streamer(key="example", video_transformer_factory=VideoTransformer())
-        captured_image = VideoTransformer().transform()
+        ctx = webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
+        captured_image = ctx.transform()
         self.registrationStatus = 0
         st.write("")
         st.write("Please register your name and password")
