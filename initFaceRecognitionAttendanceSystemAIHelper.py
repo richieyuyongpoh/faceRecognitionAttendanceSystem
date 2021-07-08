@@ -197,8 +197,13 @@ class faceRecognitionAttendanceSystem:
             captured_image = temp_file.name
             
             new_image = face_recognition.load_image_file(captured_image)
+            
+            face_locations(image)
+            
+            st.write(face_recognition.face_locations(new_image))
+            
             new_face_encoding = face_recognition.face_encodings(new_image)[0]
-            st.write(face_recognition.face_encodings(new_image))
+            st.write(face_recognition.face_locations(new_image))
         
 #         self.registrationStatus = 0
         st.write("")
