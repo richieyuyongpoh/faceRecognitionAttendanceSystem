@@ -43,7 +43,7 @@ class faceRecognitionAttendanceSystem:
 
         if readme:
  
-            st.write("For demo + privacy reason, it uses file uploading widget instead real-time webcam recording. ")
+            st.write("For demo + privacy reason, it uses file upload widget instead real-time offline/local webcam recording. ")
             st.write("Take note that this prototype demo does not store any info permanently into the server.")
             st.write("Should you feel uncomfortable to u, please use any cartoon face.")
         st.write("")
@@ -200,7 +200,7 @@ class faceRecognitionAttendanceSystem:
            
             if face_recognition.face_locations(new_image)==[]:
                 
-                st.write("<font color='Red'>face not identified</font>", unsafe_allow_html=True)
+                st.write("<font color='Red'>Face not identified. Upload any image.</font>", unsafe_allow_html=True)
             
              
             else:
