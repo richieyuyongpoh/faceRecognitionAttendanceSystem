@@ -4,6 +4,7 @@ import face_recognition
 from datetime import datetime
 from tempfile import NamedTemporaryFile  
 import pandas as pd
+import numpy as np
 
 
 @st.cache(allow_output_mutation=True)
