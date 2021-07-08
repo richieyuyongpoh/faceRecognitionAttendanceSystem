@@ -255,7 +255,7 @@ class faceRecognitionAttendanceSystem:
             
                         self.registrationStatus += 1
                         st.write("self.registrationStatus = {} ".format(self.registrationStatus))
-        
+                        uploaded_file =[]
                         return 
     
     
