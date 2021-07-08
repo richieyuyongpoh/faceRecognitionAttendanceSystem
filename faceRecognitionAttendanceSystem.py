@@ -127,7 +127,7 @@ def initCheckInModule():
             
             
                 st.write("")
-                st.write(" {} is detected.")
+                st.write(f" {name} is detected.")
             
                 st.write("")
                 st.write("")
@@ -135,7 +135,7 @@ def initCheckInModule():
                 checkIn = st.button("check in")
             
                 if checkIn:
-                    ct = datetime.datetime.now()
+                    ct = datetime.now()
                     st.write("You have checked in on : {}".format( ct))
                     attendanceRecord()['User Name'].append(name)
                     attendanceRecord()["Checked-in Time"].append(ct)
