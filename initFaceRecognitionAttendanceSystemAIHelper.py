@@ -203,23 +203,23 @@ class faceRecognitionAttendanceSystem:
 #             client_settings=WEBRTC_CLIENT_SETTINGS,
 #             )
 
-        webrtc_ctx = webrtc_streamer(key="example")
+        webrtc_streamer(key="example")
 
-        if webrtc_ctx.video_receiver:
-            image_loc = st.empty()
-            while True:
+#         if webrtc_ctx.video_receiver:
+#             image_loc = st.empty()
+#             while True:
             
-                try:
-                    frame = webrtc_ctx.video_receiver.get_frame(timeout=1)
-                except queue.Empty:
-                    print("Queue is empty. Stop the loop.")
-                    webrtc_ctx.video_receiver.stop()
-                    break
+#                 try:
+#                     frame = webrtc_ctx.video_receiver.get_frame(timeout=1)
+#                 except queue.Empty:
+#                     print("Queue is empty. Stop the loop.")
+#                     webrtc_ctx.video_receiver.stop()
+#                     break
 
-                img_rgb = frame.to_ndarray(format="rgb24")
-                image_loc.image(img_rgb)
+#                 img_rgb = frame.to_ndarray(format="rgb24")
+#                 image_loc.image(img_rgb)
         
-                captured_image = img_rgb
+#                 captured_image = img_rgb
         
         
         self.registrationStatus = 0
