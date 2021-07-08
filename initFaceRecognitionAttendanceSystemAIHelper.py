@@ -41,7 +41,7 @@ class faceRecognitionAttendanceSystem:
         
         readme = st.checkbox('Read Me.')
 
-        if read:
+        if readme:
  
             st.write("For demo + privacy reason, it uses file uploading widget instead real-time webcam recording. ")
             st.write("Take note that this prototype demo does not store any info permanently into the server.")
