@@ -6,16 +6,6 @@ from datetime import datetime
 
 system = faceRecognitionAttendanceSystem()
 
-# system.homeInterface()
-
-
-
-
-
-# webrtc_streamer(key="example")
-
-
-
 
 user_choice = st.sidebar.selectbox(
     'Select an Option',
