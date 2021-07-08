@@ -198,7 +198,7 @@ class faceRecognitionAttendanceSystem:
             
             new_image = face_recognition.load_image_file(captured_image)
            
-            if face_recognition.face_locations(new_image)==0:
+            if face_recognition.face_locations(new_image)==[]:
                 
                 st.write("face not identified")
              
