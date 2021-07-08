@@ -200,7 +200,8 @@ class faceRecognitionAttendanceSystem:
            
             if face_recognition.face_locations(new_image)==[]:
                 
-                st.write("face not identified")
+                st.write("<font color='Red'>face not identified</font>", unsafe_allow_html=True)
+            
              
             else:
             
