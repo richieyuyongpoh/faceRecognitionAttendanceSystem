@@ -247,7 +247,7 @@ class faceRecognitionAttendanceSystem:
             
                         self.known_face_encodings.append(new_face_encoding) 
                         self.known_face_names.append(user_name)
-                        self.registerUserInfo.append(user_name,password1)
+                        self.registerUserInfo.append((user_name,password1))
             
                         st.write("You have register successfully.")
       
