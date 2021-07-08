@@ -1,5 +1,5 @@
 import streamlit as st 
-from initFaceRecognitionAttendanceSystemAIHelper import faceRecognitionAttendanceSystem , VideoTransformer
+from initFaceRecognitionAttendanceSystemAIHelper import faceRecognitionAttendanceSystem 
 import face_recognition
 from datetime import datetime
 # from streamlit_webrtc import webrtc_streamer
