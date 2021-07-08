@@ -132,6 +132,7 @@ class faceRecognitionAttendanceSystem:
 
     def initSummaryModule(self):
         
+        st.write(self.registerUserInfo)
         
         if self.registerUserInfo==[]:
             st.write("<font color='red'>No registration is found</font>", unsafe_allow_html=True)
