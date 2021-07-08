@@ -256,7 +256,7 @@ class faceRecognitionAttendanceSystem:
             
                         st.write("You have register successfully.")
       
-    
+                        st.write(self.registerUserInfo)
                         return 
     
     
