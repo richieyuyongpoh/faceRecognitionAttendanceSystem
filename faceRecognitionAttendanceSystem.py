@@ -24,7 +24,7 @@ def face_encodings():
   
 @st.cache(allow_output_mutation=True)
 def attendanceRecord():
-    return []
+    return {'User Name':[],"Checked-in Time":[]}
 
 
 attendanceRecord()
@@ -34,7 +34,7 @@ def clearMemory():
     known_face_encodings().clear()
     known_face_names().clear()
     registerUserInfo().clear()
-    attendanceRecord()
+    attendanceRecord().clear()
         
         
 def homeInterface():
@@ -136,7 +136,9 @@ def initCheckInModule():
                 if checkIn:
                     ct = datetime.datetime.now()
                     st.write("You have checked in on : {}".format( ct))
-                    attendanceRecord().append = [{'User Name':name},{'Checked-In Time':ct]
+                    attendanceRecord().['User Name'].append(name)
+                    attendanceRecord().["Checked-in Time"].append(ct)
+            
             
  
 
