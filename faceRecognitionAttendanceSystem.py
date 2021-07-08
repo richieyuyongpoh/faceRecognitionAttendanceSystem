@@ -3,32 +3,39 @@ import streamlit as st
 import face_recognition
 from datetime import datetime
 from tempfile import NamedTemporaryFile  
+import pandas as pd
 
 
+@st.cache(allow_output_mutation=True)
+def known_face_encodings():
+    return []
   
-  
-known_face_encodings = []
-known_face_names = []
-registerUserInfo = []
-registrationStatus = 0
+@st.cache(allow_output_mutation=True)
+def known_face_names():
+    return []
 
+@st.cache(allow_output_mutation=True)
+def registerUserInfo():
+    return []
   
-face_encodings = []
-face_names = []
-temp_file1 = NamedTemporaryFile(delete=False)
+@st.cache(allow_output_mutation=True)
+def face_encodings():
+    return []
+  
+@st.cache(allow_output_mutation=True)
+def attendanceRecord():
+    return []
+
+
+attendanceRecord()
         
         
 def clearMemory():
-    known_face_encodings = []
-    known_face_names = []
-    registerUserInfo = []
-    registrationStatus = 0
-
-
-    face_encodings = []
-    face_names = []   
+    known_face_encodings().clear()
+    known_face_names().clear()
+    registerUserInfo().clear()
+    attendanceRecord()
         
-    homeInterface()
         
 def homeInterface():
 
@@ -72,58 +79,72 @@ def homeInterface():
         
 def initCheckInModule():
         
-    if registrationStatus ==0:
+    if registerUserInfo() ==[]:
         st.write("<font color='red'>No registration is found</font>", unsafe_allow_html=True)
         st.write("Please register first.")
-
-  
         
-    else:  
-            
-            
-        st.write("")
-        st.write("Please insert your name and password")
+        return
         
-        ####################
-        
-        st.write("")
-        user_name = st.text_input ("User Name", value="The user name you registered before")
-    
-        if user_name=="":
-            st.write("<font color='red'>Key in the User Name</font>", unsafe_allow_html=True)
+    else:
             
-        ####################
-        
-        st.write("")
-        password = st.text_input ("Password", help="The password you registered before", type="password")
-    
-        if password=="":
-            st.write("<font color='red'>Key in the Password</font>", unsafe_allow_html=True)
-           
-        ####################
-                
-        confirmEnter = st.button("Enter")
-            
-  
-                
-        if confirmEnter:
+        uploaded_file = st.file_uploader(
+            "Upload a facial image",
+            type=['png', 'jpg','tiff','jpeg']    )
+ 
+        temp_file = NamedTemporaryFile(delete=False)
  
             
-            for (name,pwd) in registerUserInfo:
+        if uploaded_file:
+
+            temp_file.write(uploaded_file.getvalue())
             
-                if user_name == name and password == pwd:
-                    st.write(registerUserInfo)
-                    
-            st.write("Wrong User Name or Password.")
-            st.write("Please try again.")
-    
-   
+            captured_image = temp_file.name
+            
+            new_image = face_recognition.load_image_file(captured_image)
+            
+            if face_recognition.face_locations(new_image)==[]:
+                
+                st.write("<font color='Red'>Face not identified. Please upload other image.</font>", unsafe_allow_html=True)
+                
+                return
+            
+            else:
+        
+                face_locations = face_recognition.face_locations(captured_image)
+                face_encodings = face_recognition.face_encodings(captured_image, face_locations)
+                face_names = []
+            
+                for face_encoding in face_encodings:
+         
+                    matches = face_recognition.compare_faces(known_face_encodings(), face_encoding)
+                
+                name = "Unknown Person"
+                face_distances = face_recognition.face_distance(known_face_encodings(), face_encoding)
+                best_match_index = np.argmin(face_distances)
+                if matches[best_match_index]:
+                    name = known_face_names[best_match_index]
+            
+            
+                st.write("")
+                st.write(" {} is detected.")
+            
+                st.write("")
+                st.write("")
+            
+                checkIn = st.button("check in")
+            
+                if checkIn:
+                    ct = datetime.datetime.now()
+                    st.write("You have checked in on : {}".format( ct))
+                    attendanceRecord().append = [{name:ct}]
+            
+ 
 
 def initSummaryModule():
         
     
         
-    if temp_file1=="1":
+    if registerUserInfo()==[]:
         st.write("<font color='red'>No registration is found</font>", unsafe_allow_html=True)
         st.write("Please register first.")
 
@@ -160,11 +181,11 @@ def initSummaryModule():
         if confirmEnter:
  
             
-            for (name,pwd) in registerUserInfo:
+            for (name,pwd) in registerUserInfo():
             
                 if user_name == name and password == pwd:
-                    st.write(registerUserInfo)
-                    
+                    st.write(pd.DataFrame(registerUserInfo()))
+                    return
          
             st.write("Wrong User Name or Password.")
             st.write("Please try again.")
@@ -244,15 +265,13 @@ def initRegistrationModule():
                 
                else:
             
-                    known_face_encodings.append(new_face_encoding) 
-                    known_face_names.append(user_name)
-                    registerUserInfo.append((user_name,password1))
+                    known_face_encodings().append(new_face_encoding) 
+                    known_face_names().append(user_name)
+                    registerUserInfo().append((user_name,password1))
             
                     st.write("You have register successfully.")
       
-                    
-                    temp_file1.write("1")
-                    st.write(temp_file1)
+
                     
                  
 user_choice = st.sidebar.selectbox(
