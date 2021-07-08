@@ -3,7 +3,9 @@ from webcam import webcam
 from datetime import datetime
 import face_recognition
 from tempfile import NamedTemporaryFile    
-    
+from streamlit_webrtc import VideoTransformerBase, webrtc_streamer
+
+
 class faceRecognitionAttendanceSystem:
 
     
@@ -158,8 +160,8 @@ class faceRecognitionAttendanceSystem:
                     
                 st.write("Wrong User Name or Password.")
                 st.write("Please try again.")
-            
-            
+    
+   
         
     def initRegistrationModule(self):
         
@@ -172,14 +174,15 @@ class faceRecognitionAttendanceSystem:
 
         st.write("Stand in front of the camera and press the capture button")
         
-        captured_image = webcam()
-        if captured_image is None:
-            st.write("Waiting for capture...")
-        else:
-            st.write("The following image has been captured. ")
-            st.image(captured_image)
+#         captured_image = webcam()
+#         if captured_image is None:
+#             st.write("Waiting for capture...")
+#         else:
+#             st.write("The following image has been captured. ")
+#             st.image(captured_image)
             
-            
+        ctx = webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
+        
         self.registrationStatus = 0
         st.write("")
         st.write("Please register your name and password")
@@ -233,3 +236,16 @@ class faceRecognitionAttendanceSystem:
         
             return 
     
+    
+    
+    
+class VideoTransformer(VideoTransformerBase):
+    def __init__(self):
+
+    def transform(self, frame):
+        img = frame.to_ndarray(format="bgr24")
+
+        return img
+
+
+
