@@ -35,8 +35,8 @@ def clearMemory():
     known_face_encodings().clear()
     known_face_names().clear()
     registerUserInfo().clear()
-    attendanceRecord().clear()
-        
+    attendanceRecord()['User Name'].clear()
+    attendanceRecord()['Checked-in Time'].clear()    
         
 def homeInterface():
 
