@@ -1,13 +1,20 @@
 import streamlit as st 
 from initFaceRecognitionAttendanceSystemAIHelper import faceRecognitionAttendanceSystem , VideoTransformer
-from webcam import webcam
 import face_recognition
 from datetime import datetime
-
+from streamlit_webrtc import webrtc_streamer
 
 system = faceRecognitionAttendanceSystem()
 
 # system.homeInterface()
+
+
+
+
+
+webrtc_streamer(key="example")
+
+
 
 
 user_choice = st.sidebar.selectbox(
