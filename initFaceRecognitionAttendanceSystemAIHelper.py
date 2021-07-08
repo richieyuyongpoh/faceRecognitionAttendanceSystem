@@ -127,6 +127,7 @@ class faceRecognitionAttendanceSystem:
 
     def initSummaryModule(self):
         
+        st.write("self.registrationStatus = {} ".format(self.registrationStatus))
         
         if self.registrationStatus ==0:
             st.write("<font color='red'>No registration is found</font>", unsafe_allow_html=True)
@@ -253,7 +254,7 @@ class faceRecognitionAttendanceSystem:
       
             
                         self.registrationStatus = 1
-        
+                        st.write("self.registrationStatus = {} ".format(self.registrationStatus))
         
                         return 
     
