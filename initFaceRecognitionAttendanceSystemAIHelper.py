@@ -12,7 +12,7 @@ class faceRecognitionAttendanceSystem:
         self.known_face_encodings = []
         self.known_face_names = []
         self.registerUserInfo = []
-#         self.registrationStatus = 0
+#         self.registrationStatus = []
 
         self.attendanceRecord = []
         self.face_encodings = []
@@ -129,7 +129,7 @@ class faceRecognitionAttendanceSystem:
         
         st.write("self.registrationStatus = {} ".format(self.registrationStatus))
         
-        if self.registrationStatus ==0:
+        if self.registerUserInfo==[]:
             st.write("<font color='red'>No registration is found</font>", unsafe_allow_html=True)
             st.write("Please register first.")
 
