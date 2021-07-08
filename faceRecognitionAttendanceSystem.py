@@ -232,7 +232,7 @@ def initRegistrationModule():
              
         else:
             
-            new_face_encoding = face_recognition.face_encodings(new_image)[0]
+            
         
 
             st.write("")
@@ -271,7 +271,7 @@ def initRegistrationModule():
                     st.write("<font color='red'>Please make sure that the passwords are same.</font>", unsafe_allow_html=True)
                 
                else:
-            
+                    new_face_encoding = face_recognition.face_encodings(new_image)[0]
                     known_face_encodings().append(new_face_encoding) 
                     known_face_names().append(user_name)
                     registerUserInfo().append((user_name,password1))
