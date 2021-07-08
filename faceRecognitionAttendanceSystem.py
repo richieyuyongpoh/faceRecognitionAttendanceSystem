@@ -15,6 +15,7 @@ registrationStatus = 0
   
 face_encodings = []
 face_names = []
+temp_file1 = NamedTemporaryFile(delete=False)
         
         
 def clearMemory():
@@ -122,7 +123,7 @@ def initSummaryModule():
         
     
         
-    if registrationStatus ==0:
+    if temp_file1=="1":
         st.write("<font color='red'>No registration is found</font>", unsafe_allow_html=True)
         st.write("Please register first.")
 
@@ -248,9 +249,9 @@ def initRegistrationModule():
             
                     st.write("You have register successfully.")
       
-                    st.write(registerUserInfo)
-                    registrationStatus =1
                     
+                    temp_file1.write("1")
+                    st.write(temp_file1)
                     
                  
 user_choice = st.sidebar.selectbox(
