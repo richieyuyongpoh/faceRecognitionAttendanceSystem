@@ -93,7 +93,7 @@ def initCheckInModule():
  
         temp_file1 = NamedTemporaryFile(delete=False)
  
-            
+         
         if uploaded_file1:
 
             temp_file1.write(uploaded_file1.getvalue())
@@ -110,8 +110,8 @@ def initCheckInModule():
             
             else:
         
-                face_locations = face_recognition.face_locations(captured_image1)
-                face_encodings = face_recognition.face_encodings(captured_image1, face_locations)
+                face_locations = face_recognition.face_locations(new_image1)
+                face_encodings = face_recognition.face_encodings(new_image1, face_locations)
                 face_names = []
             
                 for face_encoding in face_encodings:
