@@ -203,7 +203,7 @@ class faceRecognitionAttendanceSystem:
 #             client_settings=WEBRTC_CLIENT_SETTINGS,
 #             )
 
-        webrtc_streamer(key="example")
+        webrtc_ctx = webrtc_streamer(key="example")
 
         if webrtc_ctx.video_receiver:
             image_loc = st.empty()
