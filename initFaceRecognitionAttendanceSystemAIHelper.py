@@ -1,5 +1,4 @@
 import streamlit as st
-from webcam import webcam
 from datetime import datetime
 import face_recognition
 from tempfile import NamedTemporaryFile    
