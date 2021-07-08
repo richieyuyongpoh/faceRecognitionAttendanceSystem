@@ -87,22 +87,22 @@ def initCheckInModule():
         
     else:
             
-        uploaded_file = st.file_uploader(
+        uploaded_file1 = st.file_uploader(
             "Upload a facial image",
             type=['png', 'jpg','tiff','jpeg']    )
  
-        temp_file = NamedTemporaryFile(delete=False)
+        temp_file1 = NamedTemporaryFile(delete=False)
  
             
-        if uploaded_file:
+        if uploaded_file1:
 
-            temp_file.write(uploaded_file.getvalue())
+            temp_file1.write(uploaded_file1.getvalue())
             
-            captured_image = temp_file.name
+            captured1_image = temp_file1.name
             
-            new_image = face_recognition.load_image_file(captured_image)
+            new_image1 = face_recognition.load_image_file(captured_image1)
             
-            if face_recognition.face_locations(new_image)==[]:
+            if face_recognition.face_locations(new_image1)==[]:
                 
                 st.write("<font color='Red'>Face not identified. Please upload other image.</font>", unsafe_allow_html=True)
                 
@@ -110,8 +110,8 @@ def initCheckInModule():
             
             else:
         
-                face_locations = face_recognition.face_locations(captured_image)
-                face_encodings = face_recognition.face_encodings(captured_image, face_locations)
+                face_locations = face_recognition.face_locations(captured_image1)
+                face_encodings = face_recognition.face_encodings(captured_image1, face_locations)
                 face_names = []
             
                 for face_encoding in face_encodings:
@@ -208,7 +208,7 @@ def initRegistrationModule():
         "Upload a facial image",
         type=['png', 'jpg','tiff','jpeg']    )
   
-    st.write(uploaded_file)
+   
     temp_file = NamedTemporaryFile(delete=False)
             
     if uploaded_file:
