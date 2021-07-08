@@ -12,7 +12,7 @@ class faceRecognitionAttendanceSystem:
         self.known_face_encodings = []
         self.known_face_names = []
         self.registerUserInfo = []
-#         self.registrationStatus = []
+#         self.registrationStatus = 0
 
         self.attendanceRecord = []
         self.face_encodings = []
@@ -23,7 +23,7 @@ class faceRecognitionAttendanceSystem:
         self.known_face_encodings = []
         self.known_face_names = []
         self.registerUserInfo = []
-        self.registrationStatus = 0
+#         self.registrationStatus = 0
 
 
         self.attendanceRecord = []
@@ -252,10 +252,7 @@ class faceRecognitionAttendanceSystem:
             
                         st.write("You have register successfully.")
       
-            
-                        self.registrationStatus += 1
-                        st.write("self.registrationStatus = {} ".format(self.registrationStatus))
-                        uploaded_file =[]
+    
                         return 
     
     
