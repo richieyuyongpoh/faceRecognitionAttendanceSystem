@@ -253,17 +253,5 @@ class faceRecognitionAttendanceSystem:
             return 
     
     
-    
-    
-class VideoTransformer(VideoTransformerBase):
-    def __init__(self):
-        self.threshold1 = 100
-        self.threshold2 = 200
-
-    def transform(self, frame):
-        img = frame.to_ndarray(format="bgr24")
-
-        return img
-
 
 
