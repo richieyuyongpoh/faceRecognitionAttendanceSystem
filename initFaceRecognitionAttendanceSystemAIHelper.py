@@ -12,7 +12,7 @@ class faceRecognitionAttendanceSystem:
         self.known_face_encodings = []
         self.known_face_names = []
         self.registerUserInfo = []
-        self.registrationStatus = 0
+#         self.registrationStatus = 0
 
         self.attendanceRecord = []
         self.face_encodings = []
