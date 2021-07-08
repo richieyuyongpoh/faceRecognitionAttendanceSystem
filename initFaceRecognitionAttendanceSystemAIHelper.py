@@ -253,7 +253,7 @@ class faceRecognitionAttendanceSystem:
                         st.write("You have register successfully.")
       
             
-                        self.registrationStatus = 1
+                        self.registrationStatus += 1
                         st.write("self.registrationStatus = {} ".format(self.registrationStatus))
         
                         return 
