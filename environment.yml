@@ -7,3 +7,4 @@ dependencies:
      - pip
      - pip:
        - streamlit-webcam-example==0.1.0
+       - streamlit-webrtc==0.6.3
