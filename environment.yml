@@ -7,3 +7,4 @@ dependencies:
      - pip
      - pip:
        - streamlit-webrtc==0.23.9
+       - pandas
