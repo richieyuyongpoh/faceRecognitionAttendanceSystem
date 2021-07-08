@@ -24,18 +24,21 @@ def face_encodings():
     return []
   
 @st.cache(allow_output_mutation=True)
-def attendanceRecord():
-    return {"User Name":[],"Checked-in Time":[]}
+def nameRecord():
+    return []
 
-
+@st.cache(allow_output_mutation=True)
+def timeRecord():
+    return []
         
         
 def clearMemory():
     known_face_encodings().clear()
     known_face_names().clear()
     registerUserInfo().clear()
-    attendanceRecord()["User Name"].clear()
-    attendanceRecord()["Checked-in Time"].clear()    
+    nameRecord().clear()
+    timeRecord().clear()
+
         
 def homeInterface():
 
@@ -137,9 +140,9 @@ def initCheckInModule():
                     ct = datetime.now()
                     st.write("You have checked in on : {}".format( ct))
                     
-                    st.write(attendanceRecord())
-                    attendanceRecord()['User Name'].append(name)
-                    attendanceRecord()["Checked-in Time"].append(ct)
+       
+                    nameRecord().append(name)
+                    timeRecord().append(ct)
             
             
  
@@ -188,7 +191,7 @@ def initSummaryModule():
             for (name,pwd) in registerUserInfo():
             
                 if user_name == name and password == pwd:
-                    st.write(pd.DataFrame(attendanceRecord()))
+                    st.write(pd.DataFrame({'User Name': dateRecord(), 'Checked-in Time': timeRecord()))
                     return
          
             st.write("Wrong User Name or Password.")
