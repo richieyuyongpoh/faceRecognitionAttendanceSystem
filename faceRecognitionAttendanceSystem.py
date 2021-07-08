@@ -191,7 +191,7 @@ def initSummaryModule():
             for (name,pwd) in registerUserInfo():
             
                 if user_name == name and password == pwd:
-                    st.write(pd.DataFrame({'User Name': dateRecord(), 'Checked-in Time': timeRecord()))
+                    st.write(pd.DataFrame({'User Name': nameRecord(), 'Checked-in Time': timeRecord()}))
                     return
          
             st.write("Wrong User Name or Password.")
