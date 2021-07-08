@@ -136,7 +136,7 @@ def initCheckInModule():
                 if checkIn:
                     ct = datetime.datetime.now()
                     st.write("You have checked in on : {}".format( ct))
-                    attendanceRecord().append = [{name:ct}]
+                    attendanceRecord().append = [{'User Name':name},{'Checked-In Time':ct]
             
  
 
@@ -184,7 +184,7 @@ def initSummaryModule():
             for (name,pwd) in registerUserInfo():
             
                 if user_name == name and password == pwd:
-                    st.write(pd.DataFrame(attendanceRecord(),columns=['User Name', 'Checked-in Time'))
+                    st.write(pd.DataFrame(attendanceRecord()))
                     return
          
             st.write("Wrong User Name or Password.")
