@@ -118,7 +118,7 @@ def initCheckInModule():
     
    
 
- def initSummaryModule():
+def initSummaryModule():
         
     
         
