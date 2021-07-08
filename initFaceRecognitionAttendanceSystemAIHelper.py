@@ -187,6 +187,10 @@ class faceRecognitionAttendanceSystem:
 #             st.image(captured_image)
             
 #         ctx = webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
+
+
+        captured_image = []
+    
         WEBRTC_CLIENT_SETTINGS = ClientSettings(
             rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
             media_stream_constraints={"video": True, "audio": False},
@@ -209,10 +213,10 @@ class faceRecognitionAttendanceSystem:
                     webrtc_ctx.video_receiver.stop()
                     break
 
-            img_rgb = frame.to_ndarray(format="rgb24")
-            image_loc.image(img_rgb)
+                img_rgb = frame.to_ndarray(format="rgb24")
+                image_loc.image(img_rgb)
         
-            captured_image = img_rgb
+                captured_image = img_rgb
         
         
         self.registrationStatus = 0
