@@ -3,7 +3,11 @@ from webcam import webcam
 from datetime import datetime
 import face_recognition
 from tempfile import NamedTemporaryFile    
-from streamlit_webrtc import VideoTransformerBase, webrtc_streamer
+from streamlit_webrtc import (
+    ClientSettings,
+    VideoTransformerBase,
+    WebRtcMode,
+    webrtc_streamer)
 
 
 class faceRecognitionAttendanceSystem:
@@ -181,8 +185,32 @@ class faceRecognitionAttendanceSystem:
 #             st.write("The following image has been captured. ")
 #             st.image(captured_image)
             
-        ctx = webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
-        captured_image = ctx.transform()
+#         ctx = webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
+    
+        
+        webrtc_ctx = webrtc_streamer(
+            key="loopback",
+            mode=WebRtcMode.SENDONLY,
+            client_settings=WEBRTC_CLIENT_SETTINGS,
+            )
+
+        if webrtc_ctx.video_receiver:
+            image_loc = st.empty()
+            while True:
+            
+                try:
+                    frame = webrtc_ctx.video_receiver.get_frame(timeout=1)
+                except queue.Empty:
+                    print("Queue is empty. Stop the loop.")
+                    webrtc_ctx.video_receiver.stop()
+                    break
+
+            img_rgb = frame.to_ndarray(format="rgb24")
+            image_loc.image(img_rgb)
+        
+        captured_image = img_rgb
+        
+        
         self.registrationStatus = 0
         st.write("")
         st.write("Please register your name and password")
