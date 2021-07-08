@@ -136,8 +136,8 @@ def initCheckInModule():
                 if checkIn:
                     ct = datetime.datetime.now()
                     st.write("You have checked in on : {}".format( ct))
-                    attendanceRecord().['User Name'].append(name)
-                    attendanceRecord().["Checked-in Time"].append(ct)
+                    attendanceRecord()['User Name'].append(name)
+                    attendanceRecord()["Checked-in Time"].append(ct)
             
             
  
