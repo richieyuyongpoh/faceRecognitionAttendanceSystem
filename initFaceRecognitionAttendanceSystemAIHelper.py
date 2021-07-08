@@ -191,17 +191,19 @@ class faceRecognitionAttendanceSystem:
 
         captured_image = []
     
-        WEBRTC_CLIENT_SETTINGS = ClientSettings(
-            rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
-            media_stream_constraints={"video": True, "audio": False},
-            )
+#         WEBRTC_CLIENT_SETTINGS = ClientSettings(
+#             rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
+#             media_stream_constraints={"video": True, "audio": True},
+#             )
         
-        webrtc_ctx = webrtc_streamer(
-            key="loopback",
-#             mode=WebRtcMode.SENDONLY,
-            mode=WebRtcMode.RECVONLY,
-            client_settings=WEBRTC_CLIENT_SETTINGS,
-            )
+#         webrtc_ctx = webrtc_streamer(
+#             key="loopback",
+# #             mode=WebRtcMode.SENDONLY,
+#             mode=WebRtcMode.RECVONLY,
+#             client_settings=WEBRTC_CLIENT_SETTINGS,
+#             )
+
+        webrtc_streamer(key="example")
 
         if webrtc_ctx.video_receiver:
             image_loc = st.empty()
