@@ -198,63 +198,63 @@ class faceRecognitionAttendanceSystem:
             
             new_image = face_recognition.load_image_file(captured_image)
            
-            
-            st.write(face_recognition.face_locations(new_image))
-            
-            new_face_encoding = face_recognition.face_encodings(new_image)[0]
-            st.write(face_recognition.face_locations(new_image))
-        
-#         self.registrationStatus = 0
-        st.write("")
-        st.write("Please register your name and password")
-        
-        ####################
-        
-        st.write("")
-        user_name = st.text_input ("User Name", value="Any User Name")
-    
-        if user_name=="":
-            st.write("<font color='red'>Key in the User Name</font>", unsafe_allow_html=True)
-            
-        ####################
-        
-        st.write("")
-        password1 = st.text_input ("Password", help="Any password. Do not use any real password.", type="password")
-    
-        if password1=="":
-            st.write("<font color='red'>Key in the Password</font>", unsafe_allow_html=True)
-           
-        ####################
-        
-        st.write("")
-        password2 = st.text_input ("Type Same Password again", help="Same Password.", type="password")
-    
-        if password2=="":
-            st.write("<font color='red'>Key in the Password</font>", unsafe_allow_html=True)
+            if face_recognition.face_locations(new_image)==0:
                 
-        confirmRegistration = st.button("Register")
+                st.write("face not identified")
+             
+            else:
+            
+                new_face_encoding = face_recognition.face_encodings(new_image)[0]
+        
+
+                st.write("")
+                st.write("Please register your name and password")
+        
+                ####################
+        
+                st.write("")
+                user_name = st.text_input ("User Name", value="Any User Name")
+    
+                if user_name=="":
+                    st.write("<font color='red'>Key in the User Name</font>", unsafe_allow_html=True)
+            
+                ####################
+        
+                st.write("")
+                password1 = st.text_input ("Password", help="Any password. Do not use any real password.", type="password")
+    
+                if password1=="":
+                    st.write("<font color='red'>Key in the Password</font>", unsafe_allow_html=True)
+           
+                ####################
+        
+                st.write("")
+                password2 = st.text_input ("Type Same Password again", help="Same Password.", type="password")
+    
+                if password2=="":
+                    st.write("<font color='red'>Key in the Password</font>", unsafe_allow_html=True)
+                
+                confirmRegistration = st.button("Register")
             
   
                 
-        if confirmRegistration:
-            if password2!=password1:
-                st.write("<font color='red'>Please make sure that the passwords are same.</font>", unsafe_allow_html=True)
+                if confirmRegistration:
+                    if password2!=password1:
+                        st.write("<font color='red'>Please make sure that the passwords are same.</font>", unsafe_allow_html=True)
                 
-            else:
+                    else:
             
-
-                    
-                self.known_face_encodings.append(new_face_encoding) 
-                self.known_face_names.append(user_name)
-                self.registerUserInfo.append(user_name,password1)
+                        self.known_face_encodings.append(new_face_encoding) 
+                        self.known_face_names.append(user_name)
+                        self.registerUserInfo.append(user_name,password1)
             
-                st.write("You have register successfully.")
+                        st.write("You have register successfully.")
       
             
-                self.registrationStatus = 1
+                        self.registrationStatus = 1
         
         
-            return 
+                        return 
     
     
 
