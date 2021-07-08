@@ -2,11 +2,6 @@ import streamlit as st
 from datetime import datetime
 import face_recognition
 from tempfile import NamedTemporaryFile    
-from streamlit_webrtc import (
-    ClientSettings,
-    VideoTransformerBase,
-    WebRtcMode,
-    webrtc_streamer)
 
 
 class faceRecognitionAttendanceSystem:
