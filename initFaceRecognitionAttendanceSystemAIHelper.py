@@ -255,19 +255,19 @@ class faceRecognitionAttendanceSystem:
             if password2!=password1:
                 st.write("<font color='red'>Please make sure that the passwords are same.</font>", unsafe_allow_html=True)
                 
-        else:
+            else:
             
-            new_image = face_recognition.load_image_file(captured_image)
-            new_face_encoding = face_recognition.face_encodings(new_image)[0]
+                new_image = face_recognition.load_image_file(captured_image)
+                new_face_encoding = face_recognition.face_encodings(new_image)[0]
                     
-            self.known_face_encodings.append(new_face_encoding) 
-            self.known_face_names.append(user_name)
-            self.registerUserInfo.append(user_name,password1)
+                self.known_face_encodings.append(new_face_encoding) 
+                self.known_face_names.append(user_name)
+                self.registerUserInfo.append(user_name,password1)
             
-            st.write("You have register successfully.")
+                st.write("You have register successfully.")
       
             
-            self.registrationStatus = 1
+                self.registrationStatus = 1
         
         
             return 
