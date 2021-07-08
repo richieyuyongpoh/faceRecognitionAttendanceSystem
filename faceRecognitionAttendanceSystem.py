@@ -98,7 +98,7 @@ def initCheckInModule():
 
             temp_file1.write(uploaded_file1.getvalue())
             
-            captured1_image = temp_file1.name
+            captured_image1 = temp_file1.name
             
             new_image1 = face_recognition.load_image_file(captured_image1)
             
@@ -161,7 +161,7 @@ def initSummaryModule():
         ####################
         
         st.write("")
-        user_name = st.text_input ("User Name", value="The user name you registered before")
+        user_name = st.text_input ("User Name", help="The user name you registered before")
     
         if user_name=="":
             st.write("<font color='red'>Key in the User Name</font>", unsafe_allow_html=True)
@@ -236,7 +236,7 @@ def initRegistrationModule():
             ####################
         
             st.write("")
-            user_name = st.text_input ("User Name", value="Any User Name")
+            user_name = st.text_input ("User Name", help="Any User Name")
     
             if user_name=="":
                 st.write("<font color='red'>Key in the User Name</font>", unsafe_allow_html=True)
