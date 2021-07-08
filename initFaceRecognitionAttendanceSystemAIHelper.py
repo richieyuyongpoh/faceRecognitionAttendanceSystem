@@ -43,14 +43,18 @@ class faceRecognitionAttendanceSystem:
 #         self.registrationStatus = 0
 #         self.user_choice = []
         st.title("Welcome to RICHIEYYPTUTORIALPAGE Face Recognition Attendance System")
-#         st.write("Note: This is a prototype demo. No files will be stored into the cloud.")
-#         st.write("Should you feel uncomfortable, please use any cartoon face.")
-#         st.write("")
-#         st.write("")
-#         st.write("")
-#         st.write("To Rregister a new user, please go to <Section A: Registration> on the left pane.")
-#         st.write("To check in, please go to <Section B: Check in> on the left pane.")
-#         st.write("To check the attendance record, please go to <Section C: Summary> on the left pane.")
+        
+        readme = st.checkbox('Read Me.')
+
+        if agree:
+            st.write('Great!')
+            st.write("For demo + privacy reason, it uses file uploading widget instead real-time webcam recording. ")
+            st.write("Take note that this prototype demo does not store any info permanently into the server.")
+            st.write("Should you feel uncomfortable to u, please use any cartoon face.")
+        st.write("")
+        st.write("")
+        st.write("")
+
         
         st.write ("For more info, please contact:")
         st.write("<a href='https://www.linkedin.com/in/yong-poh-yu/'>Dr. Yong Poh Yu </a>", unsafe_allow_html=True)
@@ -69,11 +73,12 @@ class faceRecognitionAttendanceSystem:
             
             self.clearMemory()
             
-            return 
+        
         return
         
     def initCheckInModule(self):
         temp_file = NamedTemporaryFile(delete=False)
+        
         if self.registrationStatus ==0:
             st.write("<font color='red'>No registration is found</font>", unsafe_allow_html=True)
             st.write("Please register first.")
@@ -84,38 +89,46 @@ class faceRecognitionAttendanceSystem:
         
         else:
             
-            st.write("Stand in front of the camera and register your information.")
-            temp_file.write(webcam()) 
+            uploaded_file = st.file_uploader(
+            "Upload a facial image",
+            type=['png', 'jpg','tiff','jpeg']    )
+ 
+            temp_file = NamedTemporaryFile(delete=False)
+            
+            if uploaded_file:
+
+                temp_file.write(uploaded_file.getvalue())
         
-            face_locations = face_recognition.face_locations(temp_file.name)
-            face_encodings = face_recognition.face_encodings(temp_file.name, face_locations)
-            face_names = []
-            for face_encoding in face_encodings:
+                face_locations = face_recognition.face_locations(temp_file.name)
+                face_encodings = face_recognition.face_encodings(temp_file.name, face_locations)
+                face_names = []
+            
+                for face_encoding in face_encodings:
          
-                matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
-            name = "Unknown Person"
-            face_distances = face_recognition.face_distance(self.known_face_encodings, face_encoding)
-            best_match_index = np.argmin(face_distances)
-            if matches[best_match_index]:
-                name = known_face_names[best_match_index]
+                    matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+                name = "Unknown Person"
+                face_distances = face_recognition.face_distance(self.known_face_encodings, face_encoding)
+                best_match_index = np.argmin(face_distances)
+                if matches[best_match_index]:
+                    name = known_face_names[best_match_index]
             
             
-            st.write("")
-            st.write(" {} is detected.")
+                st.write("")
+                st.write(" {} is detected.")
             
-            st.write("")
-            st.write("")
+                st.write("")
+                st.write("")
             
-            checkIn = st.button("check in")
+                checkIn = st.button("check in")
             
-            if checkIn:
-                ct = datetime.datetime.now()
-                st.write("You have checked in on : {}".format( ct))
-                self.attendanceRecord.append = [(name,ct)]
+                if checkIn:
+                    ct = datetime.datetime.now()
+                    st.write("You have checked in on : {}".format( ct))
+                    self.attendanceRecord.append = [(name,ct)]
             
  
                 
-                return 
+                    return 
 
     def initSummaryModule(self):
         
@@ -170,58 +183,29 @@ class faceRecognitionAttendanceSystem:
     def initRegistrationModule(self):
         
         st.header("Registration")
-        st.write("Register a new staff info")
         st.write("Take note that this prototype demo does not store any info permanently into the server.")
         st.write("Should you feel uncomfortable, please use any cartoon face.")
         st.write("")
         st.write("")
 
-        st.write("Stand in front of the camera and press the capture button")
+        st.write("Upload Facial Image.")
         
-#         captured_image = webcam()
-#         if captured_image is None:
-#             st.write("Waiting for capture...")
-#         else:
-#             st.write("The following image has been captured. ")
-#             st.image(captured_image)
+        uploaded_file = st.file_uploader(
+            "Upload a facial image",
+            type=['png', 'jpg','tiff','jpeg']    )
+ 
+        temp_file = NamedTemporaryFile(delete=False)
             
-#         ctx = webrtc_streamer(key="example", video_transformer_factory=VideoTransformer)
+        if uploaded_file:
 
-
-        captured_image = []
-    
-#         WEBRTC_CLIENT_SETTINGS = ClientSettings(
-#             rtc_configuration={"iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]},
-#             media_stream_constraints={"video": True, "audio": True},
-#             )
-        
-#         webrtc_ctx = webrtc_streamer(
-#             key="loopback",
-# #             mode=WebRtcMode.SENDONLY,
-#             mode=WebRtcMode.RECVONLY,
-#             client_settings=WEBRTC_CLIENT_SETTINGS,
-#             )
-
-        webrtc_streamer(key="example")
-
-#         if webrtc_ctx.video_receiver:
-#             image_loc = st.empty()
-#             while True:
+            temp_file.write(uploaded_file.getvalue())
+            captured_image = temp_file.name
             
-#                 try:
-#                     frame = webrtc_ctx.video_receiver.get_frame(timeout=1)
-#                 except queue.Empty:
-#                     print("Queue is empty. Stop the loop.")
-#                     webrtc_ctx.video_receiver.stop()
-#                     break
-
-#                 img_rgb = frame.to_ndarray(format="rgb24")
-#                 image_loc.image(img_rgb)
+            new_image = face_recognition.load_image_file(captured_image)
+            new_face_encoding = face_recognition.face_encodings(new_image)[0]
+            st.write(new_face_encoding)
         
-#                 captured_image = img_rgb
-        
-        
-        self.registrationStatus = 0
+#         self.registrationStatus = 0
         st.write("")
         st.write("Please register your name and password")
         
@@ -259,8 +243,7 @@ class faceRecognitionAttendanceSystem:
                 
             else:
             
-                new_image = face_recognition.load_image_file(captured_image)
-                new_face_encoding = face_recognition.face_encodings(new_image)[0]
+
                     
                 self.known_face_encodings.append(new_face_encoding) 
                 self.known_face_names.append(user_name)
