@@ -51,8 +51,9 @@ def homeInterface():
     if readme:
  
         st.write("For demo + privacy reason, it uses file upload widget instead real-time offline/local webcam recording. ")
-        st.write("Take note that this prototype demo does not store any info permanently into the server.")
-        st.write("Should you feel uncomfortable to u, please use any cartoon face.")
+        st.write("For Real Deployment, it is suggested to use a local webcam to detect and recognize the faces directly.") 
+        st.write("Take note that this prototype demo does not store any info permanently into the backend server.")
+        st.write("Should you feel uncomfortable, please use any cartoon face, fake user name and fake password.")
     st.write("")
     st.write("")
     st.write("")
