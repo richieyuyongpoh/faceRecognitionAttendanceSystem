@@ -186,7 +186,8 @@ def initRegistrationModule():
     uploaded_file = st.file_uploader(
         "Upload a facial image",
         type=['png', 'jpg','tiff','jpeg']    )
- 
+  
+    st.write(uploaded_file)
     temp_file = NamedTemporaryFile(delete=False)
             
     if uploaded_file:
