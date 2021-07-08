@@ -113,8 +113,8 @@ def initCheckInModule():
                 if user_name == name and password == pwd:
                     st.write(registerUserInfo)
                     
-             st.write("Wrong User Name or Password.")
-             st.write("Please try again.")
+            st.write("Wrong User Name or Password.")
+            st.write("Please try again.")
     
    
 
