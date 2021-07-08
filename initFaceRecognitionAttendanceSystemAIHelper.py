@@ -212,7 +212,7 @@ class faceRecognitionAttendanceSystem:
             img_rgb = frame.to_ndarray(format="rgb24")
             image_loc.image(img_rgb)
         
-        captured_image = img_rgb
+            captured_image = img_rgb
         
         
         self.registrationStatus = 0
