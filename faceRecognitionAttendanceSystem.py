@@ -51,6 +51,8 @@ def clearMemory():
             
         clearMemory()
         
+    return
+        
 def homeInterface():
 
 
@@ -146,7 +148,7 @@ def initCheckInModule():
                     nameRecord().append(name)
                     timeRecord().append(ct)
             
-            
+                    return
  
 
 def initSummaryModule():
@@ -199,7 +201,7 @@ def initSummaryModule():
             st.write("Wrong User Name or Password.")
             st.write("Please try again.")
     
-   
+            return
             
             
         
