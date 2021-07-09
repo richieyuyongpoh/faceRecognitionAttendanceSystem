@@ -38,7 +38,18 @@ def clearMemory():
     registerUserInfo().clear()
     nameRecord().clear()
     timeRecord().clear()
-
+    
+    st.write("To clear the registration and attendance records, press CLEAR button below.")
+    st.write("")
+    st.write("") 
+        
+    clear = st.button("CLEAR")
+        
+    if clear:
+            
+        st.write("<font color='Aquamarine'>Memory has been cleared</font>", unsafe_allow_html=True)
+            
+        clearMemory()
         
 def homeInterface():
 
@@ -64,17 +75,7 @@ def homeInterface():
     st.write("")
     st.write("")        
         
-    st.write("To clear the registration and attendance records, press CLEAR button below.")
-    st.write("")
-    st.write("") 
-        
-    clear = st.button("CLEAR")
-        
-    if clear:
-            
-        st.write("<font color='Aquamarine'>Memory has been cleared</font>", unsafe_allow_html=True)
-            
-        clearMemory()
+
             
     return    
  
@@ -284,7 +285,7 @@ def initRegistrationModule():
                  
 user_choice = st.sidebar.selectbox(
     'Select an Option',
-    ('Home','Register', 'Check in', 'View attendance Record'))
+    ('Home','Register', 'Check in', 'View attendance Record','Clear Memory'))
 
 # system = faceRecognitionAttendanceSystem()
 if user_choice== 'Register':
@@ -299,7 +300,10 @@ elif user_choice== 'Check in':
     
 elif user_choice== 'View attendance Record':  
     
-    initSummaryModule()        
+    initSummaryModule()      
+    
+elif user_choice== 'Clear Memory':
+    clearMemory()
 
 else:
     homeInterface()
