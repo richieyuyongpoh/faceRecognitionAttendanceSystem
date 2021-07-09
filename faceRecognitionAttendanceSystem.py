@@ -33,23 +33,24 @@ def timeRecord():
         
         
 def clearMemory():
-    known_face_encodings().clear()
-    known_face_names().clear()
-    registerUserInfo().clear()
-    nameRecord().clear()
-    timeRecord().clear()
     
-    st.write("To clear the registration and attendance records, press CLEAR button below.")
-    st.write("")
-    st.write("") 
-        
     clear = st.button("CLEAR")
         
     if clear:
-            
+    
+        known_face_encodings().clear()
+        known_face_names().clear()
+        registerUserInfo().clear()
+        nameRecord().clear()
+        timeRecord().clear()
+    
+        st.write("To clear the registration and attendance records, press CLEAR button below.")
+        st.write("")
+        st.write("") 
+        
         st.write("<font color='Aquamarine'>Memory has been cleared</font>", unsafe_allow_html=True)
             
-        clearMemory()
+
         
     return
         
