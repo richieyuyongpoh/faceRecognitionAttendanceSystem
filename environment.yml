@@ -8,4 +8,4 @@ dependencies:
      - pip:
        - pandas
        - dill
-       - click=7.1.2 
+       - click==7.1.2 
